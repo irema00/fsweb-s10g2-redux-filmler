@@ -2,7 +2,7 @@ import {
   TOGGLE_FAVORITES,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
-} from "../actions/movieActions.js";
+} from "../actions/favoritesActions.js";
 import movies from "../data.js";
 
 const initialState = {
@@ -12,6 +12,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_FAVORITES:
+      return {
+        ...state,
+        favoritesVisible: !state.favoritesVisible,
+      };
     default:
       return state;
   }
