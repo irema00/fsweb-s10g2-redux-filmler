@@ -6,7 +6,7 @@ const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
 
-  const movies = [];
+  const movies = useSelector((state) => state.movies);
   const movie = movies.find((movie) => movie.id === Number(id));
 
   return (
