@@ -10,7 +10,7 @@ import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import { store } from "./reducers/";
-
+import logger from "redux-logger";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
