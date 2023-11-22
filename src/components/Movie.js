@@ -10,6 +10,10 @@ const Movie = (props) => {
   const movies = useSelector((state) => state.movies);
   const movie = movies.find((movie) => movie.id === Number(id));
   const dispatch = useDispatch();
+  const deleteHandler = () => {
+    dispatch(deleteMovie(id));
+    push("/movies");
+  };
 
   return (
     <div className="bg-white rounded-md shadow flex-1">
