@@ -11,10 +11,11 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 import { store } from "./reducers/";
 import logger from "redux-logger";
+const storage = createStore(reducer, applyMiddleware(logger));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Provider store={store}>
+    <Provider store={storage}>
       <App />
     </Provider>
   </BrowserRouter>
