@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { deleteMovie } from "../actions/movieActions";
-import { addFavorite } from "../actions/favoritesActions";
+import { addFavorite, removeFavorite } from "../actions/favoritesActions";
 
 const Movie = (props) => {
   const { id } = useParams();
@@ -16,6 +16,7 @@ const Movie = (props) => {
 
   const deleteHandler = () => {
     dispatch(deleteMovie(id));
+    dispatch(removeFavorite(id));
     push("/movies");
   };
 

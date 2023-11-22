@@ -6,9 +6,6 @@ import { removeFavorite } from "../actions/favoritesActions";
 const FavoriteMovieList = (props) => {
   const favorites = useSelector((state) => state.favorites.favorites);
   const dispatch = useDispatch();
-  const favoriteRemoverHandler = (id) => {
-    dispatch(removeFavorite(id));
-  };
 
   return (
     <div className="flex-1 sm:max-w-[250px] p-5 pr-5 bg-white shadow rounded-md">
@@ -22,7 +19,8 @@ const FavoriteMovieList = (props) => {
           >
             {movie.title}
             <span
-              onClick={() => favoriteRemoverHandler(movie.id)}
+              onClick={() => dispatch(removeFavorite(movie.id))}
+              key={movie.id}
               className="material-icons hover:text-red-600 text-[18px]"
             >
               remove_circle

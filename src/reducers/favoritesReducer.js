@@ -6,7 +6,7 @@ import {
 import movies from "../data.js";
 
 const initialState = {
-  favorites: [movies[0]],
+  favorites: [],
   favoritesVisible: true,
 };
 
@@ -18,16 +18,22 @@ const reducer = (state = initialState, action) => {
         favoritesVisible: !state.favoritesVisible,
       };
     case ADD_FAVORITE:
+      const isExisting = state.favorites.find(
+        (movie) => movie.id === action.payload.id
+      );
+      if (isExisting) {
+        return state;
+      }
       const newState = {
         ...state,
         favorites: [action.payload, ...state.favorites],
       };
       return newState;
     case REMOVE_FAVORITE:
-      const newFavorites = state.favorites.filter(
-        (movie) => movie.id === action.payload
-      );
-      return { ...state, favorites: newFavorites };
+      return {
+        ...state,
+        favorites: state.favorites.filter((item) => action.payload !== item.id),
+      };
     default:
       return state;
   }

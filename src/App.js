@@ -14,8 +14,6 @@ const App = (props) => {
   const displayFavorites = useSelector(
     (state) => state.favorites.favoritesVisible
   );
-
-  console.log("FAV GOSTER", displayFavorites);
   return (
     <div>
       <nav className="bg-zinc-800 px-6 py-3">
