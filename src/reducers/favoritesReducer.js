@@ -17,6 +17,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         favoritesVisible: !state.favoritesVisible,
       };
+    case ADD_FAVORITE:
+      const newState = {
+        ...state,
+        favorites: [action.payload, ...state.favorites],
+      };
+      return newState;
+    case REMOVE_FAVORITE:
+      const newFavorites = state.favorites.filter(
+        (movie) => movie.id === action.payload
+      );
+      return { ...state, favorites: newFavorites };
     default:
       return state;
   }
