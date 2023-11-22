@@ -24,7 +24,7 @@ const AddMovieForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    movie.id = Math.floor(Math.random() * 1000000) + 1;
+    movie.id = Date.now();
     dispatch(addMovie(movie));
     push("/movies");
   };
