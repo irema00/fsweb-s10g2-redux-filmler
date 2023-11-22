@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Movie = (props) => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const Movie = (props) => {
 
   const movies = useSelector((state) => state.movies);
   const movie = movies.find((movie) => movie.id === Number(id));
+  const dispatch = useDispatch();
 
   return (
     <div className="bg-white rounded-md shadow flex-1">
