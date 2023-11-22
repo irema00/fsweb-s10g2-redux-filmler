@@ -6,8 +6,8 @@ import { removeFavorite } from "../actions/favoritesActions";
 const FavoriteMovieList = (props) => {
   const favorites = useSelector((state) => state.favorites.favorites);
   const dispatch = useDispatch();
-  const favoriteRemoverHandler = () => {
-    dispatch(removeFavorite());
+  const favoriteRemoverHandler = (id) => {
+    dispatch(removeFavorite(id));
   };
 
   return (
