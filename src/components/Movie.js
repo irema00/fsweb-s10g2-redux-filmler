@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { deleteMovie } from "../actions/movieActions";
 
 const Movie = (props) => {
   const { id } = useParams();
