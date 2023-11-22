@@ -5,5 +5,5 @@ import movieReducer from "./movieReducer";
 const reducers = combineReducers({
   movie: movieReducer,
 });
-export default movieReducer;
 export const store = createStore(reducers);
+export default reducers;
